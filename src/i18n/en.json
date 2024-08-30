@@ -1,0 +1,152 @@
+{
+  "system": {
+    "resourceNotFound": "Resource not found",
+    "internalServerError": "Internal server error"
+  },
+  "model": {
+    "invalidObjectId": "Invalid ObjectId"
+  },
+  "user": {
+    "createSuccess": "User created successfully",
+    "emailExists": "Email already exists",
+    "getUsersSuccess": "Get users successfully",
+    "passwordLength": "Password must have at least 8 characters",
+    "passwordDigit": "Password must have at least 1 digit",
+    "passwordLetter": "Password must have at least 1 letter",
+    "getUserSuccess": "Get user successfully",
+    "userNotFound": "User not found",
+    "updateSuccess": "User updated successfully",
+    "deleteSuccess": "User deleted successfully"
+  },
+  "auth": {
+    "emailExists": "Email already exists",
+    "registerSuccess": "Register successfully",
+    "invalidCredentials": "Wrong email or password",
+    "loginSuccess": "Login successfully",
+    "getMeSuccess": "Get me successfully",
+    "unauthorized": "Please login first",
+    "forbidden": "Forbidden",
+    "updateProfileSuccess": "Update profile successfully",
+    "invalidPassword": "Invalid password",
+    "changePasswordSuccess": "Change password successfully",
+    "tokenExpired": "Token expired",
+    "tokenInvalid": "Token invalid",
+    "tokenRequired": "Token required",
+    "invalidSignature": "Invalid signature",
+    "verifyEmailSuccess": "Verify email successfully",
+    "userNotFound": "User not found",
+    "emailNotVerified": "Email not verified",
+    "emailAlreadyVerified": "Email already verified",
+    "verificationEmailResent": "Verification email resent",
+    "emailResendTimeout": "Please wait at least 1 minute before resending the verification email.",
+    "resetPasswordEmailSent": "Reset password email sent",
+    "invalidOtp": "Invalid OTP",
+    "otpVerified": "OTP verified",
+    "resetPasswordSuccess": "Reset password successfully"
+  },
+  "report": {
+    "createSuccess": "Report created successfully",
+    "notFound": "Report not found",
+    "getDetail": "Get details successfully",
+    "getList": "Get list reports successfully",
+    "deleteSuccess": "Delete reports successfully",
+    "existed": "Report already exists",
+    "cannotReportOwnMoment": "Cannot report own moment"
+  },
+  "upload": {
+    "unsupported": "Unsupported file format",
+    "imgRequired": "Img is required"
+  },
+  "feedback": {
+    "createSuccess": "Feedback created successfully",
+    "notFound": "Feedback not found",
+    "getDetail": "Get all feedback successfully",
+    "getFeedback": "Get feedback successfully",
+    "updateSuccess": "Update feedback successfully",
+    "deleteSuccess": "Delete feedback successfully",
+    "getMyFeedbacks": "Get my feedbacks successfully"
+  },
+  "custom": {
+    "regexObjectId": "Mongo format id is incorrect"
+  },
+  "moment": {
+    "createSuccess": "Moment created successfully",
+    "getMomentsSuccess": "Get moments successfully",
+    "momentNotFound": "Moment not found",
+    "getMomentSuccess": "Get moment successfully",
+    "updateMomentSuccess": "Update moment successfully",
+    "deleteMomentSuccess": "Delete moment successfully",
+    "updateMomentForbidden": "You are not allowed to update this moment",
+    "deleteMomentForbidden": "You are not allowed to delete this moment",
+    "restoreMomentBadRequest": "Moment is not deleted",
+    "restoreMomentForbidden": "You are not allowed to restore this moment",
+    "restoreMomentSuccess": "Restore moment successfully",
+    "importMomentsSuccess": "Import moments successfully",
+    "moveMomentToPermanentSuccess": "Moment added successfully",
+    "getMyTemporaryMomentsSuccess": "Get my moments import from Facebook successfully",
+    "invalidImportRecordsCount": "Invalid import records count"
+  },
+  "friend": {
+    "notFound": "Friend not found",
+    "createSuccess": "Friend created successfully",
+    "getDetail": "Get detail successfully",
+    "getList": "Get list friends successfully",
+    "deleteSuccess": "Delete friends successfully",
+    "alreadyRequest": "Already send request before",
+    "alreadyFriend": "You are already friend",
+    "friendRequestNotFound": "Friend request not found",
+    "acceptRequestSuccess": "Accept request successfully",
+    "declineRequestSuccess": "Delince request successfully",
+    "requestNotFound": "Request not found",
+    "cannotSendRequestToSelf": "Cannot send request to self",
+    "notInList": "Not in list",
+    "blockSuccess": "Block successfully",
+    "notBlocked": "Not blocked",
+    "unblockSuccess": "Unblock successfully",
+    "getListBlockSuccess": "Get list block successfully",
+    "alreadyBlock": "Already block",
+    "sendRequestSuccess": "Send request successfully",
+    "listReceivedRequests": "Get received requests successfully",
+    "getListFriends": "Get list friends successfully",
+    "listSentRequestsSuccess": "Get list sent requests successfully",
+    "cancelSentRequestSuccess": "Cancel sent request successfully",
+    "suggestFriendsSuccess": "Get suggestions for friends successfully",
+    "notFriend": "Not friend"
+  },
+  "react": {
+    "createSuccess": "React created successfully",
+    "notFound": "Post not found",
+    "getSuccess": "Get react successfully",
+    "cannotReactToOwnMoment": "Cannot react to own moment",
+    "getAllSuccess": "Get all react successfully"
+  },
+  "rateLimit": {
+    "tooManyRequests": "Too many requests, please try again later."
+  },
+  "conversation": {
+    "maxParticipants": "Max number of participants",
+    "alreadyExist": "Conversation already exists",
+    "createSuccess": "Conversation created successfully",
+    "getConversationsSuccess": "Get conversation of user successfully",
+    "getListConversationsSuccess": "Get list of conversations successfully",
+    "duplicateParticipants": "Duplicate participants",
+    "deleteSuccess": "Delete conversation successfully",
+    "notFound": "Conversation not found",
+    "getConversationByIdSuccess": "Get conversation by Id successfully",
+    "userIdRequired": "User Id is required",
+    "getConversationByUserForbidden": "You are not allowed to get this user's conversation",
+    "getConversationByUserSuccess": "Get conversation by user successfully"
+  },
+  "message": {
+    "sendSuccess": "Send message successfully",
+    "getSuccess": "Get message successfully"
+  },
+  "music": {
+    "createSuccess": "Music added successfully",
+    "notFound": "Music not found",
+    "musicRequired": "No music uploaded",
+    "getSuccess": "Get music successfully",
+    "updateSuccess": "Update music successfully",
+    "deleteSuccess": "Delete music successfully"
+  }
+}
