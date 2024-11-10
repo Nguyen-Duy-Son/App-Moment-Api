@@ -10,6 +10,8 @@ authRoute.post('/register', validate(authValidation.register), authController.re
 
 authRoute.post('/login', validate(authValidation.login), authController.login);
 
+authRoute.post('/refresh-token', authController.refreshToken);
+
 authRoute
   .get('/me', auth, authController.getMe)
   .put('/me', auth, upload('avatar'), validate(authValidation.updateProfile), authController.updateProfile);

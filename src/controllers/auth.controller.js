@@ -106,12 +106,15 @@ const login = catchAsync(async (req, res) => {
 
   const accessToken = generateToken({ id: user._id });
 
+  const refreshToken = generateRefreshToken({ id: user._id });
+
   res.status(httpStatus.OK).json({
     statusCode: httpStatus.OK,
     message: i18n.translate('auth.loginSuccess'),
     data: {
       user,
       accessToken,
+      refreshToken,
     },
   });
 });
@@ -256,6 +259,13 @@ const generateToken = (payload) => {
   return token;
 };
 
+const generateRefreshToken = (payload) => {
+  const token = jwt.sign(payload, env.jwtSecretRefresh, {
+    expiresIn: env.jwtExpireRefresh,
+  });
+  return token;
+};
+
 const generateEmailToken = (payload) => {
   const token = jwt.sign(payload, env.jwtVerifyEmailSecret, {
     expiresIn: env.jwtVerifyEmailExpire,
@@ -270,6 +280,39 @@ const generateOtpToken = (payload) => {
   return token;
 };
 
+const refreshToken = catchAsync(async (req, res) => {
+  const { refreshToken } = req.body;
+
+  if (!refreshToken) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, i18n.translate('auth.unauthorized'));
+  }
+  let payload;
+  try {
+    payload = jwt.verify(refreshToken, env.jwtSecretRefresh);
+  } catch (error) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, i18n.translate('auth.invalidToken'));
+  }
+  console.log(payload);
+  const user = await User.findById(payload.id);
+  if (!user) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, i18n.translate('auth.userNotFound'));
+  }
+
+  const newAccessToken = generateToken({ id: user._id });
+  const newRefreshToken = generateRefreshToken({ id: user._id });
+
+  await user.save();
+
+  res.status(httpStatus.OK).json({
+    statusCode: httpStatus.OK,
+    message: i18n.translate('auth.tokenRefreshed'),
+    data: {
+      accessToken: newAccessToken,
+      refreshToken: newRefreshToken,
+    },
+  });
+});
+
 module.exports = {
   register,
   verifyEmail,
@@ -281,4 +324,5 @@ module.exports = {
   forgotPassword,
   verifyOtp,
   resetPassword,
+  refreshToken,
 };

@@ -32,6 +32,9 @@ const sendMessage = catchAsync(async (req, res, next) => {
 
   if (receiverSocketId) {
     io.to(receiverSocketId).emit('newMessage', message);
+    // Bổ sung xử lý cho sự kiện 'onTyping' và 'disOnTyping'
+    io.to(receiverSocketId).emit('onTyping', { senderId });
+    io.to(receiverSocketId).emit('disOnTyping', { senderId });
   }
 
   res.status(https.OK).json({

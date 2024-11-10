@@ -14,6 +14,16 @@ const messageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    // time send message
+    timeSendMessage: {
+      type: Date,
+      default: Date.now,
+    },
+    // time seen message
+    timeSeenMessage: {
+      type: Date,
+      default: Date.now,
+    },
   },
   {
     timestamps: true,

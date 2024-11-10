@@ -36,6 +36,21 @@ io.on('connection', (socket) => {
       delete userSocketMap[userId];
     }
   });
+  // Lắng nghe sự kiện "onTyping" từ client
+  socket.on('onTyping', ({ senderId, receiverId }) => {
+    const receiverSocketId = getReceiverSocketId(receiverId);
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit('onTyping', { senderId });
+    }
+  });
+
+  // Lắng nghe sự kiện "disOnTyping" từ client
+  socket.on('disOnTyping', ({ senderId, receiverId }) => {
+    const receiverSocketId = getReceiverSocketId(receiverId);
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit('disOnTyping', { senderId });
+    }
+  });
 });
 
 module.exports = { app, io, server, getReceiverSocketId };

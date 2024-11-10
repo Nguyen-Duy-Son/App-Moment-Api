@@ -9,9 +9,11 @@ const env = {
   apiSecret: process.env.API_SECRET,
   adminFullname: process.env.ADMIN_FULLNAME || 'Admin',
   adminPassword: process.env.ADMIN_PASSWORD || 'admin',
-  adminEmail: process.env.ADMIN_EMAIL || 'sondev2k3@gmail.com',
-  jwtSecret: process.env.JWT_SECRET || 'hitmoments.com',
-  jwtExpire: process.env.JWT_EXPIRE || '1d',
+  adminEmail: process.env.ADMIN_EMAIL || 'nguyenduyson28072003@gmail.com',
+  jwtSecret: process.env.JWT_SECRET || 'SECRET_KEY',
+  jwtExpire: process.env.JWT_EXPIRE || '1h',
+  jwtSecretRefresh: process.env.JWT_SECRET_REFRESH || 'SECRET_KEY_REFRESH',
+  jwtExpireRefresh: process.env.JWT_EXPIRE_REFRESH || '1h',
   apiUrl: process.env.API_URL || `http://localhost:${process.env.PORT || 3000}`,
   frontendUrl: process.env.FRONTEND_URL,
   jwtVerifyEmailSecret: process.env.JWT_VERIFY_EMAIL_SECRET,
@@ -26,6 +28,7 @@ const env = {
     cookie: process.env.TIKTOK_COOKIE,
     imageUrl: process.env.TIKTOK_IMAGE_URL,
   },
+
   // discordToken: process.env.DISCORD_TOKEN,
   // discordChannelId: process.env.DISCORD_CHANNEL_ID,
 };
