@@ -15,7 +15,7 @@ const env = {
   jwtSecretRefresh: process.env.JWT_SECRET_REFRESH || 'SECRET_KEY_REFRESH',
   jwtExpireRefresh: process.env.JWT_EXPIRE_REFRESH || '1h',
   apiUrl: process.env.API_URL || `http://localhost:${process.env.PORT || 3000}`,
-  frontendUrl: process.env.FRONTEND_URL,
+  frontendUrl: process.env.FRONTEND_URL || 'http://localhost:3000',
   jwtVerifyEmailSecret: process.env.JWT_VERIFY_EMAIL_SECRET,
   jwtVerifyEmailExpire: process.env.JWT_VERIFY_EMAIL_EXPIRE || '1h',
   emailResendTime: (+process.env.EMAIL_RESEND_TIME || 1) * 60 * 1000,

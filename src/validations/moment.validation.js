@@ -4,10 +4,11 @@ const { objectId } = require('./custom.validation');
 const createMoment = {
   body: joi.object({
     image: joi.string().optional(),
-    content: joi.string(),
-    music: joi.string().custom(objectId),
-    location: joi.string(),
-    weather: joi.string(),
+    linkMusic: joi.string().allow(null, '').optional(),
+    content: joi.string().allow(null, '').optional(),
+    musicId: joi.string().custom(objectId).allow(null, '').optional(),
+    location: joi.string().allow(null, '').optional(),
+    weather: joi.string().allow(null, '').optional(),
   }),
 };
 
@@ -37,6 +38,7 @@ const updateMoment = {
       music: joi.string().custom(objectId),
       location: joi.string(),
       weather: joi.string(),
+      linkMusic: joi.string(),
     })
     .min(1),
 };

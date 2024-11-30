@@ -28,18 +28,27 @@ const momentSchema = new mongoose.Schema(
     content: {
       type: String,
       trim: true,
+      default: null,
+    },
+    linkMusic: {
+      type: String,
+      default: null,
+      trim: true,
     },
     musicId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Music',
+      default: null,
     },
     location: {
       type: String,
       trim: true,
+      default: null,
     },
     weather: {
       type: String,
       trim: true,
+      default: null,
     },
   },
   {
