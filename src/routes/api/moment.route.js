@@ -15,6 +15,8 @@ momentRoute
 
 momentRoute.route('/me').get(momentController.getMyMoments);
 
+momentRoute.route('/images').get(momentController.getListImages);
+
 momentRoute.route('/totals').get(author(['admin']), momentController.getTotalMomentsCurrentMonth);
 
 momentRoute

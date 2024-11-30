@@ -320,6 +320,44 @@ const getTotalMomentsCurrentMonth = catchAsync(async (req, res) => {
   });
 });
 
+// get list image moment
+const getListImages = catchAsync(async (req, res) => {
+  const { isDeleted = false } = req.query;
+
+  const { friendList } = await Friend.findOne({ userId: req.user.id });
+
+  const query = {
+    isDeleted,
+    image: { $ne: null }, // Chỉ lấy những moments có hình ảnh
+    userId: { $in: [req.user.id, ...friendList] },
+  };
+
+  // Nếu là ADMIN thì bỏ điều kiện userId để lấy toàn bộ moments
+  if (req.user.role === USER_ROLE.ADMIN) {
+    delete query.userId;
+  }
+
+  const moments = await Moment.find(query)
+    .select('image createdAt') // Chỉ lấy các trường cần thiết
+    .sort({ createdAt: -1 })
+    .lean();
+
+  const images = moments.map((moment) => ({
+    id: moment._id,
+    image: moment.image,
+    createdAt: moment.createdAt,
+  }));
+
+  res.status(httpStatus.OK).json({
+    statusCode: httpStatus.OK,
+    message: i18n.translate('moment.getAllImagesSuccess'),
+    data: {
+      images,
+      totalImages: images.length,
+    },
+  });
+});
+
 module.exports = {
   createMoment,
   getMoments,
@@ -332,4 +370,5 @@ module.exports = {
   importMoments,
   moveMomentToPermanent,
   getTotalMomentsCurrentMonth,
+  getListImages, // Thêm API mới
 };
